@@ -1,7 +1,14 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+# 基本功能参考示例的code：
+# 设置矩阵值
+# 获取矩阵值
+# 设置逆矩阵值
+# 获取逆矩阵值
+##########################################
+# 验证方法
+# 初始化一个矩阵： x <- matrix(1:4, 2, 2)
+# 创建矩阵函数： p <- makeCacheMatrix(x)
+# 初次求逆(调用solve计算)： cacheSolve(p)
+# 再次求逆(从cache里取值)： cacheSolve(p)
 
 makeCacheMatrix <- function(x = matrix()) {
         m <- NULL
@@ -19,7 +26,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+##获取逆矩阵
 
 cacheSolve <- function(x, ...) {
         m <- x$getinverse()
@@ -28,6 +35,8 @@ cacheSolve <- function(x, ...) {
                 return(m)
         }
         data <- x$get()
+        
+        # 利用solve函数求逆矩阵
         m <- solve(data, ...)
         x$setinverse(m)
         m
